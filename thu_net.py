@@ -4,6 +4,10 @@ import requests
 import hashlib
 
 
+def is_in_thu():
+    return 'indexOutJump.jsp' not in requests.get('http://info.tsinghua.edu.cn').url
+
+
 def is_online():
     return ',' in requests.post('http://net.tsinghua.edu.cn/cgi-bin/do_login', data={'action': 'check_online'}).content
 
